@@ -2,7 +2,19 @@
 
 A modern, scalable Two-Tier web application architecture deployed on Kubernetes via Helm charts.
 
-![Two-Tier Architecture Deployment Flow](./animation.webp)
+![Two-Tier Architecture Visualization](./animation.png)
+
+### 🚀 Dynamic Deployment Flow Animation
+I have created two high-quality visualizations for this project:
+
+1.  **Interactive Web Animation**: A full-screen, GSAP-powered dashboard showing the Step-by-Step flow. Open **[index.html](index.html)** in your browser and click "TRIGGER HELM INSTALL".
+2.  **Embedded SVG Flow**: A lightweight, pulsing SVG animation that visualizes the data flow from `values.yaml` to the Kubernetes cluster.
+
+![Deployment Flow Animation](./architecture-flow.svg)
+
+- **Values Input**: Shows parameters from `values.yaml` being read.
+- **Helm Engine**: Visualizes the template rendering process.
+- **K8s Orchestration**: Animates the creation of Flask Web App replicas and the MySQL Database with Persistent Storage.
 
 ## Overview
 
