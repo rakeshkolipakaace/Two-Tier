@@ -1,0 +1,325 @@
+:root {
+    --bg-color: #0d1117;
+    --primary-color: #58a6ff;
+    --secondary-color: #3fb950;
+    --accent-color: #ffca28;
+    --neon-blue: #00f3ff;
+    --neon-magenta: #ff00ff;
+    --neon-green: #39ff14;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --font-heading: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%);
+}
+
+.container {
+    width: 1200px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(to right, #ffffff, #58a6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.1rem;
+}
+
+header .subtitle {
+    font-size: 1rem;
+    color: var(--primary-color);
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+}
+
+.deployment-canvas {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    position: relative;
+    padding: 2rem;
+}
+
+/* Glass Panels */
+.panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.values-panel {
+    border-color: var(--neon-blue);
+    height: fit-content;
+}
+
+.panel-header {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.code-container {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.key { color: var(--primary-color); }
+
+/* Center Engine */
+.helm-core {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.helm-logo-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.helm-logo {
+    width: 150px;
+    height: 150px;
+    color: var(--neon-blue);
+    filter: drop-shadow(0 0 10px var(--neon-blue));
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.helm-text {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--neon-blue);
+    letter-spacing: 0.2rem;
+}
+
+.templates-folder {
+    margin-top: 2rem;
+    background: var(--glass-bg);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px dashed var(--glass-border);
+    width: 100%;
+}
+
+.folder-icon {
+    font-weight: bold;
+    color: #ffd600;
+    margin-bottom: 0.5rem;
+}
+
+.template-files {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.file-tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s;
+}
+
+/* Cluster Panel */
+.cluster-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--neon-magenta);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.cluster-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+    color: var(--neon-magenta);
+}
+
+.k8s-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.nodes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.resource-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pod {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    opacity: 0.2; /* Initial state */
+    transform: translateX(20px);
+}
+
+.pod-icon {
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.pod-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.pod-name {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.pod-status {
+    font-size: 0.7rem;
+    color: #aaa;
+}
+
+.pod-status.running {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.pv-tag {
+    font-size: 0.7rem;
+    color: var(--accent-color);
+    margin-left: 3rem;
+    border-left: 2px solid var(--accent-color);
+    padding-left: 1rem;
+    opacity: 0.2;
+}
+
+/* Overlay & Paths */
+.connector-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+path {
+    fill: none;
+    stroke: var(--neon-blue);
+    stroke-width: 2;
+    stroke-dasharray: 10, 5;
+    opacity: 0.3;
+}
+
+/* Animations */
+.controls {
+    text-align: center;
+    padding: 2rem;
+}
+
+button {
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 1rem 2rem;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.2rem;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+}
+
+button:hover {
+    background: var(--neon-blue);
+    color: var(--bg-color);
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* Pulse effect for flow particles */
+.particle {
+    width: 8px;
+    height: 8px;
+    background: var(--neon-blue);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 10px var(--neon-blue);
+    filter: blur(1px);
+}
